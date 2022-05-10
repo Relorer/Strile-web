@@ -1,0 +1,62 @@
+{
+  "name": "create-react-app-with-styled-components-typescript",
+  "version": "5.0.0",
+  "private": true,
+  "dependencies": {
+    "@mui/icons-material": "^5.6.2",
+    "@mui/lab": "latest",
+    "@mui/material": "^5.6.4",
+    "@mui/styled-engine-sc": "latest",
+    "@mui/styles": "^5.6.2",
+    "@mui/x-date-pickers": "^5.0.0-alpha.2",
+    "@testing-library/jest-dom": "latest",
+    "@testing-library/react": "latest",
+    "@testing-library/user-event": "latest",
+    "@types/react-router-dom": "^5.3.3",
+    "date-fns": "^2.28.0",
+    "firebase": "^9.8.0",
+    "moment": "^2.29.3",
+    "react": "latest",
+    "react-countdown": "^2.3.2",
+    "react-countdown-hook": "^1.1.1",
+    "react-device-detect": "^2.2.2",
+    "react-dom": "latest",
+    "react-firebase-hooks": "^5.0.3",
+    "react-horizontal-scroll-menu": "^0.0.3",
+    "react-router": "^6.3.0",
+    "react-router-dom": "^6.3.0",
+    "react-scripts": "latest",
+    "react-scroll-horizontal": "^1.6.6",
+    "react-timer-hook": "^3.0.5",
+    "styled-components": "latest",
+    "ts-debounce": "^4.0.0"
+  },
+  "scripts": {
+    "tsc": "./node_modules/.bin/tsc",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@craco/craco": "latest",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "@types/styled-components": "latest",
+    "craco-alias": "^3.0.1",
+    "typescript": "latest"
+  }
+}
