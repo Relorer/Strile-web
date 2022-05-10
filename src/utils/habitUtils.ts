@@ -14,7 +14,6 @@ export const streakByDay = (habit: any, date: Date): number => {
   datesCompleted.sort((o1: any, o2: any) => (o2.date - o1.date < 0 ? -1 : 1));
   let streak = 0;
 
-
   var BreakException = {};
 
   try {
@@ -23,7 +22,7 @@ export const streakByDay = (habit: any, date: Date): number => {
 
       if (itemDate <= _date.getTime()) {
         while (calendar.getTime() != itemDate) {
-          calendar.setDate(calendar.getDate() - 1)
+          calendar.setDate(calendar.getDate() - 1);
 
           if (calendar.getTime() == itemDate) break;
 
@@ -33,8 +32,7 @@ export const streakByDay = (habit: any, date: Date): number => {
         }
         if (item.complete) {
           streak++;
-        }
-        else if (
+        } else if (
           itemDate != _date.getTime() &&
           plannedForDay(habit, new Date(itemDate))
         ) {
@@ -47,8 +45,8 @@ export const streakByDay = (habit: any, date: Date): number => {
   }
 
   for (let index = 0; index < 10; index++) {
-    let d = new Date()
-    d.setDate(new Date().getDate() - index)
+    let d = new Date();
+    d.setDate(new Date().getDate() - index);
   }
 
   return streak;
@@ -61,7 +59,7 @@ export const plannedForDay = (habit: any, date: Date): boolean => {
 
 export const getDateCompleted = (habit: any, date: Date): DateCompleted => {
   let dateOfDayWithoutTime = dateWithoutTime(date);
-  habit.datesCompleted = habit.datesCompleted || []
+  habit.datesCompleted = habit.datesCompleted || [];
   let datesCompleted: DateCompleted[] = habit.datesCompleted;
   let founds = datesCompleted.filter((d) => dateOfDayWithoutTime == d.date);
   let found = founds && founds.length ? founds[0] : null;

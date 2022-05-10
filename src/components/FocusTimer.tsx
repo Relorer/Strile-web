@@ -83,7 +83,7 @@ const FocusTimer = () => {
         </Grid>
 
         <TimerAnimation
-        key="focusTimer-animation"
+          key="focusTimer-animation"
           width="100%"
           height="60vh"
           total={timerTime}

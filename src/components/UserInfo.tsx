@@ -1,40 +1,11 @@
-import {
-  AccountCircle,
-  Cloud,
-  ContentCopy,
-  ContentCut,
-  ContentPaste,
-} from "@mui/icons-material";
-import LockIcon from "@mui/icons-material/Lock";
-import GoogleIcon from "@mui/icons-material/Google";
 import { useAuthState } from "react-firebase-hooks/auth";
-import AssignmentIndIcon from "@mui/icons-material/AssignmentInd";
-import TaskIcon from "@mui/icons-material/Task";
-import KitesurfingIcon from "@mui/icons-material/Kitesurfing";
-import AvTimerIcon from "@mui/icons-material/AvTimer";
 
-import {
-  Box,
-  Grid,
-  LinearProgress,
-  LinearProgressProps,
-  Stack,
-  Typography,
-} from "@mui/material";
-import { makeStyles } from "@mui/styles";
-import { useContext, useEffect, useMemo, useState } from "react";
+import { Box, Grid, LinearProgress, Stack, Typography } from "@mui/material";
+import { useContext, useMemo } from "react";
 import { Context } from "..";
-import {
-  GoogleAuthProvider,
-  signInWithCredential,
-  signInWithPopup,
-} from "firebase/auth";
 import { SnackBarContext } from "../services/SnackBarProvider";
 import { useNavigate } from "react-router";
 import Graph from "./Graph";
-
-import { ref, getDatabase } from "firebase/database";
-import { useObject } from "react-firebase-hooks/database";
 import { dateWithoutTime, nowWithoutTime } from "../utils/date";
 
 interface UserInfoProps {
@@ -44,7 +15,6 @@ interface UserInfoProps {
 const UserInfo = ({ userInfo }: UserInfoProps) => {
   const mainContext = useContext(Context);
   const snackBar = useContext(SnackBarContext);
-  const { notify } = snackBar || { notify: () => {} };
 
   const [user, loading] = useAuthState(mainContext.auth);
   const navigate = useNavigate();
@@ -102,7 +72,8 @@ const UserInfo = ({ userInfo }: UserInfoProps) => {
             </Grid>
             <Grid item>
               <Typography variant="body1" sx={{ mt: -2, pt: 0 }}>
-                {Math.floor(userInfo?.goalExperience - userInfo?.experience)} points more
+                {Math.floor(userInfo?.goalExperience - userInfo?.experience)}{" "}
+                points more
               </Typography>
             </Grid>
           </Grid>

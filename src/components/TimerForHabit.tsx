@@ -1,14 +1,8 @@
-import { useAuthState } from "react-firebase-hooks/auth";
-
-import { Box, Button, Grid, Stack, Typography } from "@mui/material";
-import { makeStyles } from "@mui/styles";
-import { useContext, useEffect, useMemo, useRef, useState } from "react";
-import { Context } from "..";
+import { Box, Button, Stack, Typography } from "@mui/material";
+import { useContext, useEffect, useState } from "react";
 import { SnackBarContext } from "../services/SnackBarProvider";
-import { useNavigate } from "react-router";
 import TimerAnimation from "./TimerAnimation";
 import { TimerState } from "../timer_states/TimerState";
-import { TimerBreakNoActive } from "../timer_states/TimerBreakNoActive";
 import useCountDown from "react-countdown-hook";
 import { TimerNoActive } from "../timer_states_for_habit/TimerNoActive";
 

@@ -69,7 +69,7 @@ export const calcExecutedForTask = async (
 ) => {
   let exp = 0;
   if (newState) {
-    let exist = false
+    let exist = false;
     Object.keys(userInfo?.executed).map(async (key, index) => {
       let ex = userInfo.executed[key];
       if (
@@ -77,7 +77,7 @@ export const calcExecutedForTask = async (
         ex.typeCase === "com.example.strile.data_firebase.models.Task" &&
         ex.dateComplete === nowWithoutTime()
       ) {
-        exist = true
+        exist = true;
       }
     });
     if (!exist) {
@@ -117,9 +117,9 @@ export const calcExecutedForHabit = async (
   newState: boolean
 ) => {
   let exp = 0;
-  let day = Date.now()
+  let day = Date.now();
   if (newState) {
-    let exist = false
+    let exist = false;
     Object.keys(userInfo?.executed).map(async (key, index) => {
       let ex = userInfo.executed[key];
       if (
@@ -127,11 +127,12 @@ export const calcExecutedForHabit = async (
         ex.typeCase === "com.example.strile.data_firebase.models.Habit" &&
         ex.dateComplete === nowWithoutTime()
       ) {
-        exist = true
+        exist = true;
       }
     });
     if (!exist) {
-      exp = (streakByDay(habit, new Date(day)) + 1) * (habit.difficulty + 1) / 2
+      exp =
+        ((streakByDay(habit, new Date(day)) + 1) * (habit.difficulty + 1)) / 2;
       let executed = {
         caseId: habit.id,
         dateComplete: Date.now(),
@@ -152,7 +153,11 @@ export const calcExecutedForHabit = async (
         ex.dateComplete >= nowWithoutTime()
       ) {
         executed.push(ex);
-        exp -= -1 * (streakByDay(habit, new Date(day)) + 2) * (habit.difficulty + 1) / 2;
+        exp -=
+          (-1 *
+            (streakByDay(habit, new Date(day)) + 2) *
+            (habit.difficulty + 1)) /
+          2;
       }
     });
     console.log(exp);

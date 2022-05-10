@@ -81,18 +81,31 @@ const TimerAnimation = ({ width, height, now, total }: TimerAnimationProps) => {
       if (totalTop >= positionVisibleZone) {
         let x = totalTop - positionVisibleZone;
         let alpha =
-          (1 -
-            parabolaY(x, heightVisibleZone) / parabolaY(0, heightVisibleZone));
+          1 - parabolaY(x, heightVisibleZone) / parabolaY(0, heightVisibleZone);
         ctx.globalAlpha = alpha;
         let top = totalTop - positionVisibleZone;
         if (time % longInterval == 0) {
           let right = leftLong + longWidth;
           let buttom = totalTop - positionVisibleZone + longHeight;
-          roundRect(ctx, leftLong, top, right - leftLong, buttom - top, 100).fill();
+          roundRect(
+            ctx,
+            leftLong,
+            top,
+            right - leftLong,
+            buttom - top,
+            100
+          ).fill();
         } else {
           let right = leftShort + shortWidth;
           let buttom = totalTop - positionVisibleZone + shortHeight;
-          roundRect(ctx, leftShort, top, right - leftShort, buttom - top, 100).fill();
+          roundRect(
+            ctx,
+            leftShort,
+            top,
+            right - leftShort,
+            buttom - top,
+            100
+          ).fill();
         }
       }
     }

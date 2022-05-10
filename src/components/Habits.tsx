@@ -15,22 +15,13 @@ import {
   Grid,
   Stack,
   Typography,
-  Button,
   TextField,
   InputAdornment,
 } from "@mui/material";
-import { makeStyles } from "@mui/styles";
 import { useContext, useEffect, useMemo, useRef, useState } from "react";
 import { Context } from "..";
-import {
-  GoogleAuthProvider,
-  signInWithCredential,
-  signInWithPopup,
-} from "firebase/auth";
 import { SnackBarContext } from "../services/SnackBarProvider";
 import { useNavigate } from "react-router";
-import { useObject } from "react-firebase-hooks/database";
-import { ref } from "firebase/database";
 import { dateWithoutTime, nowWithoutTime } from "../utils/date";
 import ScrollMenu from "react-horizontal-scroll-menu";
 import DaysMenu from "./DaysMenu";
@@ -55,7 +46,6 @@ interface HabitsProps {
 const Habits = ({ userInfo }: HabitsProps) => {
   const mainContext = useContext(Context);
   const snackBar = useContext(SnackBarContext);
-  const { notify } = snackBar || { notify: () => {} };
 
   const [user, loading] = useAuthState(mainContext.auth);
   const navigate = useNavigate();
@@ -153,11 +143,10 @@ const Habits = ({ userInfo }: HabitsProps) => {
                 alignItems="center"
                 justifyContent="space-between"
               >
-                <Grid item xs={2} lg={1} sx={{textAlign: "center",}}>
+                <Grid item xs={2} lg={1} sx={{ textAlign: "center" }}>
                   <Checkbox
                     checked={isCompleteToday}
                     sx={{
-                      
                       "& .MuiSvgIcon-root": { fontSize: 30 },
                     }}
                     icon={<RadioButtonUncheckedRoundedIcon />}
@@ -286,11 +275,10 @@ const Habits = ({ userInfo }: HabitsProps) => {
                     justifyContent="space-between"
                   >
                     <Grid item xs={2} lg={1}>
-                      <Box sx={{ textAlign: "center", }}>
+                      <Box sx={{ textAlign: "center" }}>
                         <KeyboardArrowDownIcon
                           fontSize="large"
                           sx={{
-                            
                             pt: showCompletedHabits ? 0 : 0.5,
                             pb: showCompletedHabits ? 0.5 : 0,
                             transform: showCompletedHabits

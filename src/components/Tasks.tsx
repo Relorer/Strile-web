@@ -1,12 +1,3 @@
-import {
-  AccountCircle,
-  Cloud,
-  ContentCopy,
-  ContentCut,
-  ContentPaste,
-} from "@mui/icons-material";
-import LockIcon from "@mui/icons-material/Lock";
-import GoogleIcon from "@mui/icons-material/Google";
 import { useAuthState } from "react-firebase-hooks/auth";
 
 import {
@@ -15,22 +6,13 @@ import {
   Grid,
   Stack,
   Typography,
-  Button,
   TextField,
   InputAdornment,
 } from "@mui/material";
-import { makeStyles } from "@mui/styles";
 import { useContext, useEffect, useMemo, useRef, useState } from "react";
 import { Context } from "..";
-import {
-  GoogleAuthProvider,
-  signInWithCredential,
-  signInWithPopup,
-} from "firebase/auth";
 import { SnackBarContext } from "../services/SnackBarProvider";
 import { useNavigate } from "react-router";
-import { useObject } from "react-firebase-hooks/database";
-import { ref } from "firebase/database";
 import { dateWithoutTime, nowWithoutTime } from "../utils/date";
 import ScrollMenu from "react-horizontal-scroll-menu";
 import DaysMenu from "./DaysMenu";
@@ -38,7 +20,7 @@ import RadioButtonUncheckedRoundedIcon from "@mui/icons-material/RadioButtonUnch
 import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
 import Task from "./Task";
 import AddIcon from "@mui/icons-material/Add";
-import { calcExecutedForTask, removeTask, updateTask } from "../db/db";
+import { calcExecutedForTask, updateTask } from "../db/db";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 interface TasksProps {
@@ -48,7 +30,6 @@ interface TasksProps {
 const Tasks = ({ userInfo }: TasksProps) => {
   const mainContext = useContext(Context);
   const snackBar = useContext(SnackBarContext);
-  const { notify } = snackBar || { notify: () => {} };
 
   const [user, loading] = useAuthState(mainContext.auth);
   const navigate = useNavigate();

@@ -4,8 +4,6 @@ import {
   Grid,
   IconButton,
   Slider,
-  Button,
-  Checkbox,
   TextField,
   Typography,
   LinearProgress,
@@ -18,17 +16,8 @@ import {
   InputLabel,
   Drawer,
 } from "@mui/material";
-import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { useEffect, useRef, useState } from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
-import RadioButtonUncheckedRoundedIcon from "@mui/icons-material/RadioButtonUncheckedRounded";
-import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
-import CloseIcon from "@mui/icons-material/Close";
-
-import moment from "moment";
-import AddIcon from "@mui/icons-material/Add";
 import { removeHabit, updateHabit } from "../db/db";
 import { debounce } from "ts-debounce";
 import { getWeekDays, nowWithoutTime } from "../utils/date";
@@ -309,9 +298,9 @@ const Habit = ({ habit }: HabitProps) => {
           <TimerForHabit
             onTick={(left) => {
               if (left === 0) {
-                setTimerIsOpen(false)
+                setTimerIsOpen(false);
                 setElapsedTime((_) => tempElapsedTime);
-              } 
+              }
               tempElapsedTime = habit.goalTime - left;
             }}
             name={habit.name}

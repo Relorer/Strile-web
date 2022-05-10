@@ -42,4 +42,4 @@ const DaysMenuItem = ({ date, selected }: DaysMenuProps) => {
   );
 };
 
-export default DaysMenuItem
+export default DaysMenuItem;

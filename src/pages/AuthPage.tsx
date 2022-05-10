@@ -13,15 +13,13 @@ import {
   Typography,
 } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import { useContext, useEffect, useMemo, useState } from "react";
+import { useContext, useMemo, useState } from "react";
 import { Context } from "..";
 import {
   GoogleAuthProvider,
-  signInWithCredential,
   signInWithPopup,
-  getAuth,
   createUserWithEmailAndPassword,
-  signInWithEmailAndPassword
+  signInWithEmailAndPassword,
 } from "firebase/auth";
 import { SnackBarContext } from "../services/SnackBarProvider";
 import { useNavigate } from "react-router";
@@ -30,7 +28,6 @@ import { checkEmail } from "../utils/validators";
 const useStyles = makeStyles((theme) => ({}));
 
 const AuthPage = () => {
-  const classes = useStyles();
   const mainContext = useContext(Context);
   const snackBar = useContext(SnackBarContext);
   const { notify } = snackBar || { notify: () => {} };
@@ -46,8 +43,7 @@ const AuthPage = () => {
     e.preventDefault();
     const auth = mainContext.auth;
     createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-      })
+      .then((userCredential) => {})
       .catch((e) => {
         if (e.code === "auth/email-already-in-use") {
           //EMAIL EXISTS
@@ -61,13 +57,11 @@ const AuthPage = () => {
   const signinWithEmail = async () => {
     const auth = mainContext.auth;
     signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-      })
+      .then((userCredential) => {})
       .catch((e) => {
         if (e.code === "auth/wrong-password") {
           notify("Wrong password", "error");
-        }
-        else {
+        } else {
           notify(e.message, "error");
         }
       });

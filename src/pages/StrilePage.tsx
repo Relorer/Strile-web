@@ -1,12 +1,3 @@
-import {
-  AccountCircle,
-  Cloud,
-  ContentCopy,
-  ContentCut,
-  ContentPaste,
-} from "@mui/icons-material";
-import LockIcon from "@mui/icons-material/Lock";
-import GoogleIcon from "@mui/icons-material/Google";
 import { useAuthState } from "react-firebase-hooks/auth";
 import AssignmentIndIcon from "@mui/icons-material/AssignmentInd";
 import TaskIcon from "@mui/icons-material/Task";
@@ -16,17 +7,12 @@ import AvTimerIcon from "@mui/icons-material/AvTimer";
 import {
   Box,
   Button,
-  Card,
   Divider,
   Grid,
-  Input,
-  InputAdornment,
-  Link,
   ListItemIcon,
   ListItemText,
   MenuItem,
   MenuList,
-  Typography,
 } from "@mui/material";
 import { useContext, useEffect, useMemo, useState } from "react";
 import { Context } from "..";

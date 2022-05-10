@@ -1,7 +1,7 @@
 import { Box, Button, Container, Grid, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import React from "react";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Context } from "..";
 import { downloadAPK } from "../utils/fileLoader";
@@ -138,7 +138,7 @@ const MainPage = () => {
               </Typography>
             </Grid>
             <Grid item container spacing={3}>
-              <Grid item  xs={12} md={5} lg={5}>
+              <Grid item xs={12} md={5} lg={5}>
                 <Button
                   variant={"contained"}
                   href={user ? "./strile" : "./auth"}

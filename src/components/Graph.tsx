@@ -13,9 +13,9 @@ const Graph = ({ width, height, title, points, commonMax }: GraphProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   let max = 0;
-  points.forEach(p => {
-    max = Math.max(max, p[0])
-  })
+  points.forEach((p) => {
+    max = Math.max(max, p[0]);
+  });
 
   const draw = (ctx: any, frameCount: number) => {
     let width = containerRef.current?.clientWidth ?? 0;
@@ -58,12 +58,19 @@ const Graph = ({ width, height, title, points, commonMax }: GraphProps) => {
     ctx.stroke();
 
     for (let index = 0; index < 7; index++) {
-      ctx.fillText(points[index][1], (index * widthGraph) / 6 + ml - 4, heightGraph + mt + 18);
+      ctx.fillText(
+        points[index][1],
+        (index * widthGraph) / 6 + ml - 4,
+        heightGraph + mt + 18
+      );
     }
 
-
     for (let index = 0; index < 3; index++) {
-      ctx.fillText((max / 3 * (3 - index)).toFixed(1), ml - maxCountWidth, (index * heightGraph) / 3 + mt + 5);
+      ctx.fillText(
+        ((max / 3) * (3 - index)).toFixed(1),
+        ml - maxCountWidth,
+        (index * heightGraph) / 3 + mt + 5
+      );
     }
 
     ctx.strokeStyle = "#0971f1";
@@ -86,7 +93,10 @@ const Graph = ({ width, height, title, points, commonMax }: GraphProps) => {
     ctx.moveTo(ml, mt + heightGraph - (heightGraph / max) * points[0][0]);
     ctx.beginPath();
     for (let index = 0; index < 7; index++) {
-      ctx.lineTo((index * widthGraph) / 6 + ml, mt + heightGraph - (heightGraph / max) * points[index][0]);
+      ctx.lineTo(
+        (index * widthGraph) / 6 + ml,
+        mt + heightGraph - (heightGraph / max) * points[index][0]
+      );
     }
     ctx.stroke();
   };

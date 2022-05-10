@@ -1,29 +1,10 @@
 import { AccountCircle } from "@mui/icons-material";
-import LockIcon from "@mui/icons-material/Lock";
-import GoogleIcon from "@mui/icons-material/Google";
 import { useAuthState } from "react-firebase-hooks/auth";
-import {
-  Box,
-  Button,
-  Card,
-  Divider,
-  Input,
-  InputAdornment,
-  Link,
-  Typography,
-} from "@mui/material";
+import { Box, Button, Card, Input, InputAdornment, Link } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import { useContext, useEffect, useMemo, useState } from "react";
+import { useContext, useState } from "react";
 import { Context } from "..";
-import {
-  GoogleAuthProvider,
-  signInWithCredential,
-  signInWithPopup,
-  getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  sendPasswordResetEmail,
-} from "firebase/auth";
+import { sendPasswordResetEmail } from "firebase/auth";
 import { SnackBarContext } from "../services/SnackBarProvider";
 import { useNavigate } from "react-router";
 import { checkEmail } from "../utils/validators";
@@ -31,7 +12,6 @@ import { checkEmail } from "../utils/validators";
 const useStyles = makeStyles((theme) => ({}));
 
 const ResetPasswordPage = () => {
-  const classes = useStyles();
   const mainContext = useContext(Context);
   const snackBar = useContext(SnackBarContext);
   const { notify } = snackBar || { notify: () => {} };
