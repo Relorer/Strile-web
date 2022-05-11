@@ -165,11 +165,9 @@ const Tasks = ({ userInfo }: TasksProps) => {
                       if (isCompleteToday) {
                         task.dateComplete = 0;
                       } else {
-                        task.dateComplete = nowWithoutTime();
+                        task.dateComplete = dateWithoutTime(new Date(today));
                       }
-                      if (today === nowWithoutTime()) {
-                        calcExecutedForTask(userInfo, task, !isCompleteToday);
-                      }
+                      calcExecutedForTask(userInfo, task, !isCompleteToday);
                     }}
                   />
                 </Grid>

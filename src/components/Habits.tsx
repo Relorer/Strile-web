@@ -155,6 +155,8 @@ const Habits = ({ userInfo }: HabitsProps) => {
                       setStateForDay(habit, !isCompleteToday, today);
                       if (parseInt(selectedDay) === nowWithoutTime()) {
                         calcExecutedForHabit(userInfo, habit, !isCompleteToday);
+                      } else {
+                        updateHabit(habit);
                       }
                     }}
                   />

@@ -98,8 +98,7 @@ export const calcExecutedForTask = async (
       let ex = userInfo.executed[key];
       if (
         ex.caseId === task.id &&
-        ex.typeCase === "com.example.strile.data_firebase.models.Task" &&
-        ex.dateComplete >= nowWithoutTime()
+        ex.typeCase === "com.example.strile.data_firebase.models.Task"
       ) {
         executed.push(ex);
         exp -= 10 * (task.difficulty + 1);
